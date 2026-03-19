@@ -68,24 +68,52 @@ export default function CoolNowPage() {
             marginBottom: 18,
           }}
         >
-          <div style={{ fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#a9deff", marginBottom: 8 }}>
+          <div
+            style={{
+              fontSize: 12,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: "#a9deff",
+              marginBottom: 8,
+            }}
+          >
             Cooling Mode
           </div>
-          <h1 style={{ margin: 0, fontSize: 36, color: "#8ed8ff" }}>Cool Now</h1>
-          <p style={{ marginTop: 12, color: "#c8c8c8", lineHeight: 1.6 }}>
-            Keep a smaller temp readout visible while the meat cools down after the cook.
+
+          <h1
+            style={{
+              margin: 0,
+              fontSize: 36,
+              color: "#8ed8ff",
+            }}
+          >
+            Cool Now
+          </h1>
+
+          <p
+            style={{
+              marginTop: 12,
+              color: "#c8c8c8",
+              lineHeight: 1.6,
+            }}
+          >
+            Keep a smaller temp readout visible while the meat cools after the cook.
           </p>
         </div>
 
         <div
           style={{
-            background: "linear-gradient(180deg, rgba(24,24,24,0.96), rgba(10,10,10,0.98))",
+            background:
+              "linear-gradient(180deg, rgba(24,24,24,0.96), rgba(10,10,10,0.98))",
             border: "1px solid rgba(255,255,255,0.07)",
             borderRadius: 18,
             padding: 16,
           }}
         >
-          <div style={{ marginBottom: 12, fontSize: 13, color: "#b8b8b8" }}>Cooling Temp</div>
+          <div style={{ marginBottom: 12, fontSize: 13, color: "#b8b8b8" }}>
+            Cooling Temp
+          </div>
+
           <input
             type="number"
             value={temp}
@@ -99,8 +127,10 @@ export default function CoolNowPage() {
               color: "#fff",
               marginBottom: 12,
               fontSize: 16,
+              boxSizing: "border-box",
             }}
           />
+
           <div style={{ fontSize: 13, color: "#9d9d9d", lineHeight: 1.5 }}>
             This keeps the temp smaller in the corner while you’re out of live cooking mode.
           </div>
