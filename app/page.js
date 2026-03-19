@@ -10,33 +10,48 @@ const meats = [
 
 export default function Home() {
   return (
-    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 20 }}>
-      <h1 style={{ color: "#ff7a00", fontSize: 42 }}>SmokeLine 🔥</h1>
-      <p style={{ color: "#aaa" }}>
-        Tap a meat and get perfect temps and pro grilling tips.
+    <main style={{
+      minHeight: "100vh",
+      background: "radial-gradient(circle at top, #1a1a1a, #000)",
+      color: "#fff",
+      padding: 20,
+      fontFamily: "sans-serif"
+    }}>
+
+      <h1 style={{
+        color: "#ff5a00",
+        fontSize: 48,
+        textShadow: "0 0 20px rgba(255,90,0,0.7)"
+      }}>
+        SmokeLine 🔥
+      </h1>
+
+      <p style={{ color: "#aaa", marginBottom: 30 }}>
+        Underground BBQ temperature guide. Tap your meat.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 20 }}>
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 16
+      }}>
         {meats.map((meat) => (
-          <Link
-            key={meat.slug}
-            href={`/meat/${meat.slug}`}
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            <div
-              style={{
-                background: "#111",
-                padding: 20,
-                borderRadius: 12,
-                border: "1px solid #333",
-              }}
-            >
-              <div style={{ fontSize: 30 }}>{meat.icon}</div>
-              <div>{meat.name}</div>
+          <Link key={meat.slug} href={`/meat/${meat.slug}`} style={{ textDecoration: "none" }}>
+            <div style={{
+              background: "linear-gradient(145deg, #111, #000)",
+              padding: 20,
+              borderRadius: 16,
+              border: "1px solid #222",
+              boxShadow: "0 0 20px rgba(255,90,0,0.15)",
+              transition: "0.2s"
+            }}>
+              <div style={{ fontSize: 32 }}>{meat.icon}</div>
+              <div style={{ fontSize: 18 }}>{meat.name}</div>
             </div>
           </Link>
         ))}
       </div>
+
     </main>
   );
 }
