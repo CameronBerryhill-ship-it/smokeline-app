@@ -1,6 +1,20 @@
-import Link  "next/link";
+import Link from "next/link";
 
-const meats = [
+const sections = [
+  {
+    name: "Live Cook",
+    slug: "live-cook",
+    icon: "🔥",
+    note: "Track temp, graph the cook, and start rest timing",
+    temp: "Live gauge + graph",
+  },
+  {
+    name: "Cool Now",
+    slug: "cool-now",
+    icon: "❄️",
+    note: "Watch cooling with a small corner temp display",
+    temp: "Post-cook cooling mode",
+  },
   {
     name: "Pork",
     slug: "pork",
@@ -51,12 +65,7 @@ export default function Home() {
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
-      <div
-        style={{
-          maxWidth: 480,
-          margin: "0 auto",
-        }}
-      >
+      <div style={{ maxWidth: 480, margin: "0 auto" }}>
         <div
           style={{
             border: "1px solid rgba(255,255,255,0.08)",
@@ -102,80 +111,20 @@ export default function Home() {
               lineHeight: 1.5,
             }}
           >
-            Doneness, tenderness, and pro grilling tips in one tap. Pick your
-            meat and get straight to the temps that matter.
+            Live cooking, cooling, doneness, tenderness, and pro grilling tips.
           </p>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: 10,
-            marginBottom: 18,
-            overflowX: "auto",
-            paddingBottom: 4,
-          }}
-        >
-          <div
-            style={{
-              whiteSpace: "nowrap",
-              border: "1px solid rgba(255,106,26,0.25)",
-              color: "#ffd2bc",
-              background: "rgba(255,106,26,0.08)",
-              borderRadius: 999,
-              padding: "10px 14px",
-              fontSize: 13,
-            }}
-          >
-            Real temp guidance
-          </div>
-          <div
-            style={{
-              whiteSpace: "nowrap",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "#d5d5d5",
-              background: "rgba(255,255,255,0.03)",
-              borderRadius: 999,
-              padding: "10px 14px",
-              fontSize: 13,
-            }}
-          >
-            Pro tips
-          </div>
-          <div
-            style={{
-              whiteSpace: "nowrap",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "#d5d5d5",
-              background: "rgba(255,255,255,0.03)",
-              borderRadius: 999,
-              padding: "10px 14px",
-              fontSize: 13,
-            }}
-          >
-            Phone-friendly
-          </div>
-        </div>
-
         <div style={{ marginBottom: 10, color: "#b8b8b8", fontSize: 13 }}>
-          Meat Guides
+          Tools + Guides
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 14,
-          }}
-        >
-          {meats.map((meat) => (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 14 }}>
+          {sections.map((item) => (
             <Link
-              key={meat.slug}
-              href={`/meat/${meat.slug}`}
-              style={{
-                textDecoration: "none",
-                color: "inherit",
-              }}
+              key={item.slug}
+              href={`/${item.slug}`}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
                 style={{
@@ -195,7 +144,7 @@ export default function Home() {
                     marginBottom: 14,
                   }}
                 >
-                  <div style={{ fontSize: 34 }}>{meat.icon}</div>
+                  <div style={{ fontSize: 34 }}>{item.icon}</div>
                   <div
                     style={{
                       fontSize: 11,
@@ -208,37 +157,20 @@ export default function Home() {
                       textTransform: "uppercase",
                     }}
                   >
-                    Open Guide
+                    Open
                   </div>
                 </div>
 
-                <div
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 700,
-                    marginBottom: 6,
-                  }}
-                >
-                  {meat.name}
+                <div style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>
+                  {item.name}
                 </div>
 
-                <div
-                  style={{
-                    fontSize: 14,
-                    color: "#bcbcbc",
-                    marginBottom: 12,
-                  }}
-                >
-                  {meat.note}
+                <div style={{ fontSize: 14, color: "#bcbcbc", marginBottom: 12 }}>
+                  {item.note}
                 </div>
 
-                <div
-                  style={{
-                    fontSize: 14,
-                    color: "#ffcfb4",
-                  }}
-                >
-                  {meat.temp}
+                <div style={{ fontSize: 14, color: "#ffcfb4" }}>
+                  {item.temp}
                 </div>
               </div>
             </Link>
