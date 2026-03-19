@@ -4,6 +4,7 @@ const sections = [
   {
     name: "Live Cook",
     slug: "live-cook",
+    path: "/live-cook",
     icon: "🔥",
     note: "Track temp, graph the cook, and start rest timing",
     temp: "Live gauge + graph",
@@ -11,6 +12,7 @@ const sections = [
   {
     name: "Cool Now",
     slug: "cool-now",
+    path: "/cool-now",
     icon: "❄️",
     note: "Watch cooling with a small corner temp display",
     temp: "Post-cook cooling mode",
@@ -18,6 +20,7 @@ const sections = [
   {
     name: "Pork",
     slug: "pork",
+    path: "/meat/pork",
     icon: "🐖",
     note: "Chops, loin, shoulder",
     temp: "Best starting point: 145°F",
@@ -25,6 +28,7 @@ const sections = [
   {
     name: "Chicken",
     slug: "chicken",
+    path: "/meat/chicken",
     icon: "🐔",
     note: "Breast, thigh, wings",
     temp: "Safe target: 165°F",
@@ -32,6 +36,7 @@ const sections = [
   {
     name: "Beef",
     slug: "beef",
+    path: "/meat/beef",
     icon: "🐄",
     note: "Steaks, burgers, roasts",
     temp: "Popular zone: 130–145°F",
@@ -39,6 +44,7 @@ const sections = [
   {
     name: "Shrimp",
     slug: "shrimp",
+    path: "/meat/shrimp",
     icon: "🦐",
     note: "Fast hot cooks",
     temp: "Done around: 140–145°F",
@@ -46,6 +52,7 @@ const sections = [
   {
     name: "Lamb",
     slug: "lamb",
+    path: "/meat/lamb",
     icon: "🐑",
     note: "Chops, rack, leg",
     temp: "Best zone: 135–145°F",
@@ -123,7 +130,7 @@ export default function Home() {
           {sections.map((item) => (
             <Link
               key={item.slug}
-              href={`/${item.slug}`}
+              href={item.path}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
