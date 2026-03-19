@@ -4,28 +4,36 @@ import Link from "next/link";
 const data = {
   beef: {
     name: "Beef",
-    temps: ["130-135°F → Rare", "135-145°F → Medium Rare"],
-    tips: ["Rest meat", "Pull early"],
+    temps: [
+      "Rare → 130-135°F (Juicy, soft)",
+      "Medium Rare → 135-145°F (Perfect)",
+      "Medium → 145-155°F (Firm)"
+    ],
+    tips: [
+      "Pull early, carryover cooks it",
+      "Always rest 5–10 min",
+      "Use high heat sear"
+    ],
   },
   chicken: {
     name: "Chicken",
-    temps: ["165°F → Safe"],
-    tips: ["Don’t overcook"],
+    temps: ["165°F → Fully safe"],
+    tips: ["Don’t overcook", "Use indirect heat", "Let juices settle"],
   },
   pork: {
     name: "Pork",
-    temps: ["145°F → Safe"],
-    tips: ["Rest meat"],
+    temps: ["145°F → Juicy safe", "200°F → Pulled pork"],
+    tips: ["Rest after cook", "Low and slow for tenderness"],
   },
   shrimp: {
     name: "Shrimp",
-    temps: ["Opaque = done"],
-    tips: ["Cook fast"],
+    temps: ["Opaque + curled = done"],
+    tips: ["Cook fast", "Overcook = rubber"],
   },
   lamb: {
     name: "Lamb",
-    temps: ["135-145°F → Best"],
-    tips: ["Don’t overcook"],
+    temps: ["135°F → Medium rare", "145°F → Medium"],
+    tips: ["Best slightly pink", "Don’t overcook"],
   },
 };
 
@@ -34,14 +42,56 @@ export default function Page({ params }) {
   if (!meat) return notFound();
 
   return (
-    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 20 }}>
-      <Link href="/" style={{ color: "#ff7a00", textDecoration: "none" }}>
+    <main style={{
+      minHeight: "100vh",
+      background: "radial-gradient(circle at top, #1a1a1a, #000)",
+      color: "#fff",
+      padding: 20,
+      fontFamily: "sans-serif"
+    }}>
+
+      <Link href="/" style={{
+        color: "#ff5a00",
+        textDecoration: "none",
+        marginBottom: 20,
+        display: "inline-block"
+      }}>
         ← Back
       </Link>
 
-      <h1>{meat.name}</h1>
-      {meat.temps.map((t, i) => <div key={i}>{t}</div>)}
-      {meat.tips.map((t, i) => <div key={i}>{t}</div>)}
+      <h1 style={{
+        color: "#ff5a00",
+        textShadow: "0 0 15px rgba(255,90,0,0.7)"
+      }}>
+        {meat.name}
+      </h1>
+
+      <h3>🔥 Temps</h3>
+      {meat.temps.map((t, i) => (
+        <div key={i} style={{
+          background: "#111",
+          padding: 10,
+          marginBottom: 8,
+          borderRadius: 8,
+          border: "1px solid #222"
+        }}>
+          {t}
+        </div>
+      ))}
+
+      <h3 style={{ marginTop: 20 }}>👨‍🍳 Pro Tips</h3>
+      {meat.tips.map((t, i) => (
+        <div key={i} style={{
+          background: "#111",
+          padding: 10,
+          marginBottom: 8,
+          borderRadius: 8,
+          border: "1px solid #222"
+        }}>
+          {t}
+        </div>
+      ))}
+
     </main>
   );
 }
